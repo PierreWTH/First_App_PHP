@@ -16,15 +16,18 @@
         </p>
         <p>
             <label>
-                Prix du produit :
-                <input type="number" name="price">
+                Prix du produit : 
+                <input type="number" step="any" name="price">
             </label>
         </p>
         <p>
             <label>
                 Quantité désirée :
-                <input type="number" name="qtt">
+                <input type="number" name="qtt" value="1">
             </label>
+        </p>
+        <p>
+            <input type = "submit" name = "submit" value="Ajouter le produit">
         </p>
     </form>
     
