@@ -1,4 +1,7 @@
 <?php
+
+// Ouverture de session
+
 session_start()
 ?>
 
@@ -18,6 +21,7 @@ session_start()
             <li><a href="recap.php">Mon panier</a></li>
         </ul>
     </nav>
+    
     <h2>MON PANIER</h2>
     <?php
     // Verification si la clé product n'existe pas ou ne contient aucune donnée
@@ -42,9 +46,9 @@ session_start()
         
 
         //boucle pour chaque donnée de SESSION : index numerote chaque produit, product contient le produit
-
+    
         $totalGeneral = 0;
-
+        
         foreach($_SESSION['products'] as $index => $product){
             echo "<tr>",
                     "<td>".$index."</td>",
@@ -55,6 +59,8 @@ session_start()
                 "</tr>";
                 // Ajout de la valeur du produit parcoura au total general
                 $totalGeneral += $product['total'];
+    
+                
         }
         echo "<tr>",
                 "<td colspan=4> Total General : </td>",
@@ -63,9 +69,19 @@ session_start()
             "</tbody>",
             "</table";
 
+        var_dump($index);
     }
+
+    
+
+
     
     ?>
+
+        
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>
