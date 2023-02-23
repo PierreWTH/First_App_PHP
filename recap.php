@@ -8,6 +8,7 @@
 <body>
     <h1>Ajouter un produit</h1>
      
+    <!-- action : indique la cible du formulaire, méthod : méthode par laquelle les données HTTP seront transmises -->
     <form action="traitement.php" method="post">
         <p>
             <label>
