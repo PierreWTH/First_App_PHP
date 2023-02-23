@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>Ajouter un produit</h1>
+     
     <form action="traitement.php" method="post">
         <p>
             <label>
