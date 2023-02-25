@@ -26,7 +26,7 @@ session_start()
     <?php
     // Verification si la clé product n'existe pas ou ne contient aucune donnée
     if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
-        echo "<p> Aucun produit en session <p>";
+        echo "<p> Vous n'avez pas de produit dans votre panier <p>";
     }
     // Si il y a des produits en session, affichage d'un tableau :
     else{
@@ -72,7 +72,8 @@ session_start()
         var_dump($index);
     }
 
-    
+    $num_products = count($_SESSION['products']);
+    echo "<p> Nombre de produits dass le panier : ".$num_products.".<p>";
 
 
     
