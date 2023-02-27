@@ -54,9 +54,19 @@ session_start()
                     "<td>".$index."</td>",
                     "<td>".$product['name']."</td>",
                     "<td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>",
-                    "<td>".$product['qtt']."</td>",
+                    "<td>",
+                        "<form method='POST' action='update_quantity.php'><input type='hidden' name='index' value='".$index."'>",
+                            "<button type='submit' name='action' value='moins' class='btn btn-dark'> - </button>",
+                            "<span class='mx-2'>".$product['qtt']."</span>",
+                            "<button type='submit' name='action' value='plus' class='btn btn-dark'> + </button>",
+                        "</form>",
+                    "</td>",
                     "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",
-                    "<td><form method='POST' action='delete_product.php'><input type='hidden' name='index' value='".$index."'><button type='submit' class='btn btn-dark'>Supprimer</button></form></td>",
+                    "<td>
+                    <form method='POST' action='delete_product.php'><input type='hidden' name='index' value='".$index."'>
+                        <button type='submit' class='btn btn-dark'>Supprimer</button>
+                    </form>
+                    </td>",
                 "</tr>";
     
                 // Ajout de la valeur du produit parcoura au total general
@@ -65,8 +75,8 @@ session_start()
                 
         }
         echo "<tr>",
-                "<td><form method='POST' action='delete_all_product.php'><input type='hidden' name='index' value='-1'><button type='submit' class='btn btn-danger'>Tout supprimer</button></form></td>",
-                "<td colspan=4> Total General : </td>",
+                "<td><form method='POST' action='delete_all_product.php'><input type='hidden' name='index' value='deleteallproduct'><button type='submit' class='btn btn-danger'>Tout supprimer</button></form></td>",
+                "<td colspan=3> Total General : </td>",
                 "<td><strong>".number_format($totalGeneral, 2, ",", "&nbsp;")."&nbsp€</strong><td>",
             "</tr>",
             "</tbody>",
@@ -81,7 +91,7 @@ session_start()
         
         <?php
         $num_products = count($_SESSION['products']); 
-        echo "<p> Nombre de produits dans le panier : ".$num_products.".<p>"
+        echo "<p class='text-dark'> Nombre de produits dans le panier : ".$num_products.".<p>"
         ?>
     </div>
         

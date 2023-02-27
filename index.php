@@ -31,7 +31,7 @@ session_start()
         
         <?php
         $num_products = count($_SESSION['products']); 
-        echo "<p> Nombre de produits dans le panier : ".$num_products.".<p>"
+        echo "<p class='text-dark'> Nombre de produits dans le panier : ".$num_products.".<p>"
         ?>
     </div>
 
