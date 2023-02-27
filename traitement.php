@@ -26,10 +26,4 @@
 header("Location:index.php");
 
 
-
-
-
-
-
-
 ?>
