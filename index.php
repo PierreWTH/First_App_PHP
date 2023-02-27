@@ -1,3 +1,10 @@
+<?php
+
+// Ouverture de session
+
+session_start()
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +26,14 @@
     </nav>
 
     <h1>AJOUTER UN PRODUIT</h1>
+
+    <div class="d-flex justify-content-center">
+        
+        <?php
+        $num_products = count($_SESSION['products']); 
+        echo "<p> Nombre de produits dans le panier : ".$num_products.".<p>"
+        ?>
+    </div>
 
     <div class="form">
     <!-- action : indique la cible du formulaire, méthod : méthode par laquelle les données HTTP seront transmises -->

@@ -86,3 +86,7 @@ h2{
 table {
     width: 60%;
 }
+
+p {
+    color: red;
+}

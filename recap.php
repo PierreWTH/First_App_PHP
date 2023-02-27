@@ -71,14 +71,16 @@ session_start()
 
         var_dump($index);
     }
-
-    $num_products = count($_SESSION['products']);
-    echo "<p> Nombre de produits dass le panier : ".$num_products.".<p>";
-
-
     
     ?>
 
+    <div class="d-flex justify-content-center">
+        
+        <?php
+        $num_products = count($_SESSION['products']); 
+        echo "<p> Nombre de produits dans le panier : ".$num_products.".<p>"
+        ?>
+    </div>
         
 
 
