@@ -53,7 +53,7 @@
 
             case "moreQty":
                 $_SESSION["products"][$_GET['index']]['qtt']++;
-                $_SESSION["products"][$_GET['index']]['total'] =+ $_SESSION["products"][$_GET['index']]['qtt'] * $_SESSION["products"][$_GET['index']]['price'];
+                $_SESSION["products"][$_GET['index']]['total'] = $_SESSION["products"][$_GET['index']]['qtt'] * $_SESSION["products"][$_GET['index']]['price'];
 
                 header('Location: recap.php');
                
@@ -61,7 +61,7 @@
 
             case "lessQty":
                 $_SESSION["products"][$_GET['index']]['qtt']--;
-                $_SESSION["products"][$_GET['index']]['total'] =+ $_SESSION["products"][$_GET['index']]['qtt'] * $_SESSION["products"][$_GET['index']]['price'];
+                $_SESSION["products"][$_GET['index']]['total'] = $_SESSION["products"][$_GET['index']]['qtt'] * $_SESSION["products"][$_GET['index']]['price'];
 
                     if ($_SESSION["products"][$_GET['index']]['qtt'] == 0){
                         unset($_SESSION["products"][$_GET['index']]);

@@ -24,7 +24,7 @@ session_start()
     
     <h2>MON PANIER</h2>
 
-    <a href="traitement.php?action=deleteAllProduct">Vider panier</a>
+    <a href="traitement.php?action=deleteAllProduct" class ='text-decoration-none'>Vider panier</a>
 
     <?php
     // Verification si la clé product n'existe pas ou ne contient aucune donnée
@@ -60,13 +60,13 @@ session_start()
                     "<td>".$product['name']."</td>",
                     "<td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>",
                     "<td>
-                        <a href='traitement.php?action=lessQty&index=$index'> - </a>
+                        <a href='traitement.php?action=lessQty&index=$index'class ='text-decoration-none'> - </a>
                         <span class = mx-2>".$product['qtt']."</span>
-                        <a href='traitement.php?action=moreQty&index=$index'> + </a>         
+                        <a href='traitement.php?action=moreQty&index=$index'class ='text-decoration-none'> + </a>         
                     </td>",
                     "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",
                     "<td>
-                        <a href='traitement.php?action=deleteThisProduct&index=$index'>Supprimer</a>
+                        <a href='traitement.php?action=deleteThisProduct&index=$index' class ='text-decoration-none'>Supprimer</a>
                     </td>",
                 "</tr>";
     

@@ -90,3 +90,7 @@ table {
 p {
     color: black;
 }
+
+a{
+    text-decoration: none;
+}
