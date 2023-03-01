@@ -52,12 +52,15 @@
                 header("Location: index.php");
                 break;
 
+            // Vider le panier    
+
             case "deleteAllProduct":
                     unset($_SESSION['products']);
                 
                 header('Location: recap.php');
                 break;
 
+            // Supprimer un seul produit
 
             case "deleteThisProduct":
                 unset($_SESSION["products"][$_GET['index']]);
@@ -66,6 +69,8 @@
                 header('Location: recap.php');
                 
                 break;
+
+            // Augmenter la quantité
 
             case "moreQty":
                 $_SESSION["products"][$_GET['index']]['qtt']++;
@@ -76,10 +81,14 @@
                
                 break;
 
+            // Baisser la quantité
+
             case "lessQty":
                 $_SESSION["products"][$_GET['index']]['qtt']--;
                 $_SESSION["products"][$_GET['index']]['total'] = $_SESSION["products"][$_GET['index']]['qtt'] * $_SESSION["products"][$_GET['index']]['price'];
 
+                    // Supprimer un produit si la quantité est a 0
+                    
                     if ($_SESSION["products"][$_GET['index']]['qtt'] == 0){
                         unset($_SESSION["products"][$_GET['index']]);
                     }
