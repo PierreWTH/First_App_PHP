@@ -23,6 +23,9 @@ session_start()
     </nav>
     
     <h2>MON PANIER</h2>
+
+    <a href="traitement.php?action=deleteAllProduct">Vider panier</a>
+
     <?php
     // Verification si la clé product n'existe pas ou ne contient aucune donnée
     if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
@@ -30,6 +33,8 @@ session_start()
     }
     // Si il y a des produits en session, affichage d'un tableau :
     else{
+
+        echo "<p class='text-dark'> Nombre de produits dans le panier : ".count($_SESSION["products"]).". <p>";
 
         echo
             "<table class='table'>",
@@ -55,17 +60,13 @@ session_start()
                     "<td>".$product['name']."</td>",
                     "<td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>",
                     "<td>",
-                        "<form method='POST' action='update_quantity.php'><input type='hidden' name='index' value='".$index."'>",
-                            "<button type='submit' name='action' value='moins' class='btn btn-dark'> - </button>",
-                            "<span class='mx-2'>".$product['qtt']."</span>",
-                            "<button type='submit' name='action' value='plus' class='btn btn-dark'> + </button>",
-                        "</form>",
+                        "<a href='traitement.php?action=lessQty&index=$index> - </a>",
+                        "<span class = mx-2>".$product['qtt']."</span>",
+                        "<a href='traitement.php?action=moreQty&index=$index'> + </a>",         
                     "</td>",
                     "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",
                     "<td>
-                    <form method='POST' action='delete_product.php'><input type='hidden' name='index' value='".$index."'>
-                        <button type='submit' class='btn btn-dark'>Supprimer</button>
-                    </form>
+                        <a href='traitement.php?action=deleteThisProduct&index=$index'>Supprimer</a>
                     </td>",
                 "</tr>";
     
@@ -75,26 +76,15 @@ session_start()
                 
         }
         echo "<tr>",
-                "<td><form method='POST' action='delete_all_product.php'><input type='hidden' name='index' value='deleteallproduct'><button type='submit' class='btn btn-danger'>Tout supprimer</button></form></td>",
-                "<td colspan=3> Total General : </td>",
+                "<td colspan=4> Total General : </td>",
                 "<td><strong>".number_format($totalGeneral, 2, ",", "&nbsp;")."&nbsp€</strong><td>",
             "</tr>",
             "</tbody>",
             "</table";
-
-        var_dump($index);
     }
     
     ?>
 
-    <div class="d-flex justify-content-center">
-        
-        <?php
-        $num_products = count($_SESSION['products']); 
-        echo "<p class='text-dark'> Nombre de produits dans le panier : ".$num_products.".<p>"
-        ?>
-    </div>
-        
 
 
 
