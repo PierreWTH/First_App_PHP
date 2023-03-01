@@ -33,8 +33,10 @@ session_start()
         
         <?php
         
+        // Affichage nombre de produits dans le panier 
+        
         if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
-            echo "<p> Vous n'avez pas de produit dans votre panier <p>";
+            echo "<p> Vous n'avez pas de produit dans votre panier <p>.";
         } else {
             echo "<p class='text-dark'> Nombre de produits dans le panier : ".count($_SESSION["products"]).". <p>";
         }
@@ -46,23 +48,32 @@ session_start()
         
         <?php
 
+            // Affichage message succes
+
             if (isset($_SESSION['message'])){
                 $message = $_SESSION['message'];
                 echo $message;
+                unset($_SESSION['message']);
             }
+
+            // Affichage message d'erreur
             
             else{
                 $message = $_SESSION['message'];
                 echo $message;
+                unset($_SESSION['message']);
             }
 
+            
         ?>
 
 
     </div>
    
     <div class="form">
-    <!-- action : indique la cible du formulaire, méthod : méthode par laquelle les données HTTP seront transmises -->
+        
+    <!-- Formulaire -->
+
         <form action="traitement.php?action=addProduct" method="post" class="form-group">
             <p>
                 <label>

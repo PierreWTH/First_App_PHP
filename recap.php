@@ -24,14 +24,25 @@ session_start()
     
     <h2>MON PANIER</h2>
 
-    <a href="traitement.php?action=deleteAllProduct" class ='text-decoration-none'>Vider panier</a>
-
     <?php
-    // Verification si la clé product n'existe pas ou ne contient aucune donnée
+
+    // Message de suppression de produit
+
+    if (isset($_SESSION['deleteMsg'])){
+        $deleteMsg = $_SESSION['deleteMsg'];
+        echo $deleteMsg;
+        unset($_SESSION['deleteMsg']);
+    }
+
+
+    // Si product n'existe pas ou que le panier est vide :
+
     if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
         echo "<p> Vous n'avez pas de produit dans votre panier <p>";
     }
+
     // Si il y a des produits en session, affichage d'un tableau :
+
     else{
 
         echo "<p class='text-dark'> Nombre de produits dans le panier : ".count($_SESSION["products"]).". <p>";
@@ -50,7 +61,7 @@ session_start()
             "<tbody";
         
 
-        //boucle pour chaque donnée de SESSION : index numerote chaque produit, product contient le produit
+        //Boucle pour chaque donnée de SESSION : index numerote chaque produit, product contient le produit
     
         $totalGeneral = 0;
         
@@ -60,17 +71,23 @@ session_start()
                     "<td>".$product['name']."</td>",
                     "<td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>",
                     "<td>
-                        <a href='traitement.php?action=lessQty&index=$index'class ='text-decoration-none'> - </a>
+
+                        <a href='traitement.php?action=lessQty&index=$index'class ='text-decoration-none'><button type='button' class='btn btn-secondary'>-</button></a>
+
                         <span class = mx-2>".$product['qtt']."</span>
-                        <a href='traitement.php?action=moreQty&index=$index'class ='text-decoration-none'> + </a>         
+
+                        <a href='traitement.php?action=moreQty&index=$index'class ='text-decoration-none'><button type='button' class='btn btn-secondary'>+</button></a>
+
                     </td>",
                     "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",
                     "<td>
-                        <a href='traitement.php?action=deleteThisProduct&index=$index' class ='text-decoration-none'>Supprimer</a>
+
+                        <a href='traitement.php?action=deleteThisProduct&index=$index'><button type='button' class='btn btn-secondary'>Supprimer</button></a>
+
                     </td>",
                 "</tr>";
     
-                // Ajout de la valeur du produit parcoura au total general
+                // Ajout de la valeur du produit parcouru au total general
                 $totalGeneral += $product['total'];
     
                 
@@ -85,7 +102,7 @@ session_start()
     
     ?>
 
-
+<a href="traitement.php?action=deleteAllProduct"><button type="button" class="btn btn-danger">Vider le panier</button></a>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
