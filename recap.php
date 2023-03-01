@@ -59,11 +59,11 @@ session_start()
                     "<td>".$index."</td>",
                     "<td>".$product['name']."</td>",
                     "<td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>",
-                    "<td>",
-                        "<a href='traitement.php?action=lessQty&index=$index> - </a>",
-                        "<span class = mx-2>".$product['qtt']."</span>",
-                        "<a href='traitement.php?action=moreQty&index=$index'> + </a>",         
-                    "</td>",
+                    "<td>
+                        <a href='traitement.php?action=lessQty&index=$index'> - </a>
+                        <span class = mx-2>".$product['qtt']."</span>
+                        <a href='traitement.php?action=moreQty&index=$index'> + </a>         
+                    </td>",
                     "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",
                     "<td>
                         <a href='traitement.php?action=deleteThisProduct&index=$index'>Supprimer</a>

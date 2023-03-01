@@ -1,5 +1,7 @@
 <?php
 
+//OBstart
+
 // Ouverture de session
 
 session_start()
