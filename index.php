@@ -30,11 +30,31 @@ session_start()
     <div class="d-flex justify-content-center">
         
         <?php
+        
         $num_products = count($_SESSION['products']); 
-        echo "<p class='text-dark'> Nombre de produits dans le panier : ".$num_products.".<p>"
+        echo "<p class='text-dark'> Nombre de produits dans le panier : ".$num_products.". <p>";
         ?>
     </div>
 
+    <div class="d-flex justify-content-center">
+        
+        <?php
+        
+        if (isset($_SESSION['message'])){
+            $message = $_SESSION['message'];
+            echo $message;
+        }
+        
+        else{
+            $message = $_SESSION['message'];
+            echo $message;
+        }
+
+        ?>
+
+
+    </div>
+   
     <div class="form">
     <!-- action : indique la cible du formulaire, méthod : méthode par laquelle les données HTTP seront transmises -->
         <form action="traitement.php" method="post" class="form-group">

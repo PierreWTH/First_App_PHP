@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-
+// On verif
 if(isset($_POST['index']) && isset($_POST['action'])) {
     $index = $_POST['index'];
     $action = $_POST['action'];

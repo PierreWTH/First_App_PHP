@@ -20,7 +20,15 @@
 
             // On enregistre $product en session
             $_SESSION['products'][] = $product;
+            // On met un message de succès
+            $_SESSION['message'] = " <div class='alert alert-success' role='alert'> Le produit " .$product['name']. " à bien été ajouté au panier. </div>";
         }
+        
+        else {
+            //On met un message d'erreur
+            $_SESSION['message'] = " <div class='alert alert-danger' role='alert'> Erreur. Le produit n'a pas été ajouté au panier. </div>";
+        }
+            
     }
 
 header("Location:index.php");
