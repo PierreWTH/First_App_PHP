@@ -52,10 +52,11 @@
                 header("Location: index.php");
                 break;
 
-            // Vider le panier    
+            // Vider le panier
 
             case "deleteAllProduct":
                     unset($_SESSION['products']);
+                    $_SESSION['deleteMsg2']= " <div class='alert alert-success' role='alert'> Le panier a bien été vidé. </div>";
                 
                 header('Location: recap.php');
                 break;

@@ -1,6 +1,6 @@
 <?php
 
-//OBstart
+//OBstart a regarder
 
 // Ouverture de session
 

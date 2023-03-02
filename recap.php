@@ -24,9 +24,11 @@ session_start()
     
     <h2>MON PANIER</h2>
 
+    <a href="traitement.php?action=deleteAllProduct"><button type="button" class="btn btn-danger">Vider le panier</button></a>
+
     <?php
 
-    // Message de suppression de produit
+    // Message de suppression d'un produit
 
     if (isset($_SESSION['deleteMsg'])){
         $deleteMsg = $_SESSION['deleteMsg'];
@@ -34,6 +36,13 @@ session_start()
         unset($_SESSION['deleteMsg']);
     }
 
+    // Message de vidage de panier
+
+    if (isset($_SESSION['deleteMsg2'])){
+        $deleteMsg2 = $_SESSION['deleteMsg2'];
+        echo $deleteMsg2;
+        unset($_SESSION['deleteMsg2']);
+    }
 
     // Si product n'existe pas ou que le panier est vide :
 
@@ -102,7 +111,7 @@ session_start()
     
     ?>
 
-<a href="traitement.php?action=deleteAllProduct"><button type="button" class="btn btn-danger">Vider le panier</button></a>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
