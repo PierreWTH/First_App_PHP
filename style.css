@@ -2,6 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap');
 
+/* *********************************** GENERAL ************************************ */ 
 
 *{
     font-family: 'poppins';
@@ -16,6 +17,7 @@ h1 {
     font-size: 50px;
     color: #A7727D;
     width : 60%;
+    padding-top: 10px;
     margin : 20px auto 20px auto
     
 }
@@ -48,32 +50,6 @@ h1 {
 }
 
 
-ul  {
-    
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-    gap : 50px;
-    background: #EDDBC7;
-    margin: auto;
-    
-    
-    
-}
-
-li {
-    list-style: none;
-    padding : 10px
-    
-    
-}
-
-li a{
-    text-decoration: none;
-    color: #A7727D;
-}
-
 table, th, td{
     margin : 20px
 
@@ -93,4 +69,25 @@ p {
 
 a{
     text-decoration: none;
+}
+
+.panier{
+	background: #EDDBC7;
+    text-align: center;
+    border-radius: 20px;
+    color: black;
+	position: absolute;
+    top: -20px;
+    right: -12px;
+    padding: 0 5px;
+}
+
+.lien{
+	position: relative;
+}
+
+
+.fa-cart-shopping{
+    color: black;
+    padding-top: 5px;
 }
